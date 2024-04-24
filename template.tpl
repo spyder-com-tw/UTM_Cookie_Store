@@ -40,7 +40,7 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "TEXT",
     "name": "utm",
-    "displayName": "想要存放至Cookie的UTM參數",
+    "displayName": "目前存放至Cookie的UTM參數",
     "simpleValueType": true,
     "defaultValue": "utm_source,utm_medium,utm_campaign,utm_term",
     "enablingConditions": [
@@ -69,15 +69,13 @@ const utm = data.utm.split(',');
 
 for(var index = 0; index < utm.length; index++){
   if (querystring.match("utm_source=[0-9a-z_A-Z]+")[0].split('=')[0] == utm[index]){
-    log('source');
     cookie("utm_source",querystring.match("utm_source=[0-9a-z_A-Z]+")[0].split('=')[1],{
       domain: 'auto',
       path: '/',
       "max-age":"2592000",
     });
   }
-  if(querystring.match("utm_medium=[0-9a-z_A-Z]+")[0].split('=')[0] == utm[index]){
-    log('medium');
+  else if(querystring.match("utm_medium=[0-9a-z_A-Z]+")[0].split('=')[0] == utm[index]){
     cookie("utm_medium",querystring.match("utm_medium=[0-9a-z_A-Z]+")[0].split('=')[1],{
       domain: 'auto',
       path: '/',
@@ -85,23 +83,20 @@ for(var index = 0; index < utm.length; index++){
     });
     
   }
-  if(querystring.match("utm_campaign=[0-9a-z_A-Z]+")[0].split('=')[0] == utm[index]){
-    log('camp');
+  else if(querystring.match("utm_campaign=[0-9a-z_A-Z]+")[0].split('=')[0] == utm[index]){
     cookie("utm_campaign",querystring.match("utm_campaign=[0-9a-z_A-Z]+")[0].split('=')[1],{
       domain: 'auto',
       path: '/',
       "max-age":"2592000",
     });
   }
-  if(querystring.match("utm_term=[0-9a-z_A-Z]+")[0].split('=')[0] == utm[index]){
-    log('term');
+  else if(querystring.match("utm_term=[0-9a-z_A-Z]+")[0].split('=')[0] == utm[index]){
     cookie("utm_term",querystring.match("utm_term=[0-9a-z_A-Z]+")[0].split('=')[1],{
       domain: 'auto',
       path: '/',
       "max-age":"2592000",
     });
   }
-  log('外圍');
 }
 
 
@@ -139,6 +134,9 @@ ___WEB_PERMISSIONS___
         "versionId": "1"
       },
       "param": []
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
     },
     "isRequired": true
   },

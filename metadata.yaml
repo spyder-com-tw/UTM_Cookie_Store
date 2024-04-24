@@ -1,5 +1,5 @@
 homepage: "https://github.com/spyder-com-tw/EcDataLayerGTM"
 documentation: "https://github.com/spyder-com-tw/EcDataLayerGTM/blob/main/README.md"
 versions:
-  - sha: 020f0e41ec6f29166b530f349c8ddca01660960d
+  - sha: c904bbed5fc591a5fad00589be858f6e62bd992e
     changeNotes: Initial release.
